@@ -1,2 +1,2 @@
-class <%= file_name.camelize %> < ApplicationComponent
+class <%= file_name.camelize %>Component < ApplicationComponent
 end
