@@ -2,10 +2,9 @@ require 'test_helper'
 
 class ActiveComponent::BaseTest < ActiveSupport::TestCase
 
-  def setup
-    FooController.new.dummy_action do
-      @foo = Foo.new(bar: "bar")
-    end
+  setup do
+    FooController.new.get_context
+    @foo = Foo.new(bar: "bar")
   end
 
   test "has included date helper from action view" do
@@ -24,9 +23,8 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
     assert_equal @foo.bar, "bar"
   end
 
-  # TODO change this once we have the controller context assigned
   test "sets controller for the component context" do
-    assert_nil @foo.controller
+    assert_kind_of FooController, @foo.controller
   end
 
 end

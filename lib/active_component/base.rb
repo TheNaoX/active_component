@@ -8,7 +8,7 @@ module ActiveComponent
     def initialize(args = {})
       if args.kind_of? Hash
         assign_variables args
-        self.controller = nil
+        self.controller = ActiveComponent.get_controller
       else
         raise ArgumentError, "Expected: Hash. Received: #{args.class.name}"
       end

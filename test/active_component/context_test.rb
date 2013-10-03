@@ -3,7 +3,7 @@ require 'test_helper'
 class ActiveComponent::ContextTest < ActiveSupport::TestCase
 
   test "has a get controller method" do
-    assert_nil ActiveComponent.get_controller
+    assert ActiveComponent.get_controller
   end
 
   test "returns a cotroller instance" do
