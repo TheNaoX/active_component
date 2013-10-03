@@ -1,7 +1,14 @@
 class ComponentGenerator < Rails::Generators::NamedBase
+  self.source_root File.expand_path("../templates", __FILE__)
+  
   desc "Creates view component"
   
   def create_component
-    binding.pry
+    copy_file "application_component.rb", "app/components/application_component.rb"
+    create_file "app/components/#{file_name}_component.rb", <<-FILE
+      class #{file_name.camelize} < ApplicationComponent
+      end
+    FILE
+    create_file "app/templates/#{file_name}_component.mustache"
   end
 end
