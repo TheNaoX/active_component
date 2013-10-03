@@ -1,5 +1,3 @@
-require 'active_support/concern'
-
 module ActiveComponent
   @@controller = {}
 
@@ -15,10 +13,9 @@ module ActiveComponent
   end
 
   module Context
-    extend ActiveSupport::Concern
 
-    included do
-      before_filter :get_context
+    def self.included(base)
+      base.before_filter(:get_context)
     end
 
     def get_context
