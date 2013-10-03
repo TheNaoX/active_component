@@ -2,16 +2,6 @@ require 'test_helper'
 
 class ActiveComponent::BaseTest < ActiveSupport::TestCase
 
-  class Foo < ActiveComponent::Base
-    attr_accessor :bar
-  end
-
-  class FooController < ApplicationController
-    def dummy_action
-      yield
-    end
-  end
-
   def setup
     FooController.new.dummy_action do
       @foo = Foo.new(bar: "bar")
