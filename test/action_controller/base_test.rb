@@ -6,8 +6,16 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
     attr_accessor :bar
   end
 
+  class FooController < ApplicationController
+    def dummy_action
+      yield
+    end
+  end
+
   def setup
-    @foo = Foo.new(bar: "bar")
+    FooController.new.dummy_action do
+      @foo = Foo.new(bar: "bar")
+    end
   end
 
   test "has included date helper from action view" do
@@ -24,6 +32,11 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
   
   test "assigns the values to instance variables" do
     assert_equal @foo.bar, "bar"
+  end
+
+  # TODO change this once we have the controller context assigned
+  test "sets controller for the component context" do
+    assert_nil @foo.controller
   end
 
 end
