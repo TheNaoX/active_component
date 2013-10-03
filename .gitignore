@@ -5,6 +5,8 @@ test/dummy/db/*.sqlite3
 test/dummy/db/*.sqlite3-journal
 test/dummy/log/*.log
 test/dummy/tmp/
+test/dummy/components/
+test/dummy/templates/
 test/dummy/.sass-cache
 Gemfile.lock
 .DS_Store
