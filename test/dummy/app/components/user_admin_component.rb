@@ -1,2 +1,0 @@
-      class UserAdmin < ApplicationComponent
-      end
