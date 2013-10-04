@@ -94,6 +94,7 @@ end
 ## Future short term features
 
 * A nicer method to call the component `render_component(:activity)`.
+* Collection rendering, `collection_component(:activity_item, activities) # as array`
 * Support for more templating engines.
 
 Inspired by [Cells](https://github.com/apotonick/cells) framework done by [Apotonick](https://github.com/apotonick).
