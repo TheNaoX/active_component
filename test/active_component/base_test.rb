@@ -4,7 +4,7 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
 
   setup do
     FooController.new.get_context
-    @foo = Foo.new(bar: "bar")
+    @foo = FooComponent.new(bar: "bar")
   end
 
   test "has included date helper from action view" do
@@ -12,11 +12,11 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
   end
 
   test "a new instance of active_component/base accepts only a hash of arguments" do
-    assert_nothing_raised(ArgumentError, nil) { Foo.new(bar: Faker::Name.name) }
+    assert_nothing_raised(ArgumentError, nil) { FooComponent.new(bar: Faker::Name.name) }
   end
 
   test "a new instance of active component should raise an error if the given value is not a hash" do
-    assert_raise(ArgumentError, nil) { Foo.new(Faker::Lorem.sentence) }
+    assert_raise(ArgumentError, nil) { FooComponent.new(Faker::Lorem.sentence) }
   end
   
   test "assigns the values to instance variables" do

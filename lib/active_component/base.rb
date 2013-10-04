@@ -51,5 +51,9 @@ module ActiveComponent
     def controller
       @controller
     end
+
+    def render
+      super.html_safe
+    end
   end
 end

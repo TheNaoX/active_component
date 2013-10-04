@@ -48,7 +48,7 @@ end
 
 And in your template:
 
-```mustache
+```html
 <li>
   <a href="mailto:{{ email }}">
     {{ name }}
@@ -60,7 +60,7 @@ And in your template:
 In your rails view
 
 ```erb
-<%= ActivityComponent.new.render.html_safe %>
+<%= render_component(:activity) %>
 ```
 
 ## Features
@@ -88,12 +88,11 @@ end
 ```
 
 ``` erb
-<%= ActivityComponent.new(name: current_user.name) %>
+<%= render_component(:activity, name: current_user.name) %>
 ```
 
 ## Future short term features
 
-* A nicer method to call the component `render_component(:activity)`.
 * Collection rendering, `collection_component(:activity_item, activities) # as array`
 * Support for more templating engines.
 
