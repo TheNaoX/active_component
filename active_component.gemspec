@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = ActiveComponent::VERSION
   s.authors     = ["Antonio Chavez", "Jesus Romero"]
   s.email       = ["cavjzz@gmail.com", "elherzt@gmail.com"]
-  s.homepage    = "http://rubygems.org/gems/active-component"
-  s.summary     = "View component gem for Rails applications"
-  s.description = "Description of ActiveComponent."
+  s.homepage    = "https://github.com/TheNaoX/active_component"
+  s.summary     = "A View-Component framework for Rails applications."
+  s.description = "A View-Component framework for Rails applications."
   s.licenses    = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
