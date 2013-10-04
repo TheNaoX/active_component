@@ -1,4 +1,5 @@
 # ActiveComponent
+[![Build Status](https://travis-ci.org/TheNaoX/active_component.png?branch=master)](https://travis-ci.org/TheNaoX/active_component)
 
 A View-Component framework for Rails applications.
 
