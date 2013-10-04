@@ -1,3 +1,6 @@
+#
+# Autoinclude some of the modules from the controller top level
+#
 module ActiveComponent
   class Railtie < Rails::Railtie
     initializer "Appends a method to the action controller class" do

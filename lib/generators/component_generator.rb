@@ -1,5 +1,5 @@
 class ComponentGenerator < Rails::Generators::NamedBase
-  self.source_root File.expand_path("../../templates", __FILE__)
+  self.source_root File.expand_path("../templates", __FILE__)
   
   desc "Creates view component"
   
