@@ -31,7 +31,7 @@ module ActiveComponent
 
     def set_controller(controller)
       @@controllers[Thread.current.object_id] = controller
-      ObjectSpace.define_finalizer Thread.current, -> (id){ @@controllers[id].delete! }
+      ObjectSpace.define_finalizer Thread.current, lambda { |id| @@controllers[id].delete! }
     end
   end
 
