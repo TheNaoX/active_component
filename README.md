@@ -9,7 +9,7 @@ A View-Component framework for Rails applications.
 Add the gem on your gemfile
 
 ```ruby
-gem "active-component"
+gem "active-component", require: "active_component"
 ```
 
 Or install it manually
