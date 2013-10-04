@@ -8,13 +8,13 @@ A View-Component framework for Rails applications.
 Add the gem on your gemfile
 
 ```ruby
-gem "active_component"
+gem "active-component"
 ```
 
 Or install it manually
 
 ```bash
-$ gem install active_component
+$ gem install active-component
 ```
 
 You will have accessible all the modules from the gem in your Rails application.
