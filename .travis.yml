@@ -1,2 +1,6 @@
 language: ruby
 rvm: 2.0.0
+before_script:
+  - cd test/dummy
+  - bundle exec rake db:create db:migrate
+  - cd ../../
