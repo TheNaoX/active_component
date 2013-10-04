@@ -11,10 +11,21 @@ require 'active_support/concern'
 #
 module ActiveComponent
   module Renderable
-    extend ActiveSupport::Concern
 
-    def render_component
-      ""
+    def render_component(type, args={})
+      resource = constantize("#{type.to_s}_component").new(args)
+      resource.render
     end
+
+    def constantize(type)
+      type = type.camelize.constantize
+      unless type.superclass == ActiveComponent::Base
+        raise TypeError, ":type must be compliant to any existing component class"
+      end
+      type
+    end
+
   end
 end
+
+ActionView::Base.send(:include, ActiveComponent::Renderable)
