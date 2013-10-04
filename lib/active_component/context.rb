@@ -12,16 +12,16 @@
 # application.
 #
 module ActiveComponent
-  @@controller = {}
+  @@controllers = {}
 
   class << self
     def get_controller
-      @@controller[Thread.current.object_id]
+      @@controllers[Thread.current.object_id]
     end
 
     def set_controller(controller)
-      @@controller[Thread.current.object_id] = controller
-      ObjectSpace.define_finalizer Thread.current, -> (id){ @@controller[id].delete! }
+      @@controllers[Thread.current.object_id] = controller
+      ObjectSpace.define_finalizer Thread.current, -> (id){ @@controllers[id].delete! }
     end
   end
 
