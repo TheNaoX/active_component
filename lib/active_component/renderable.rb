@@ -16,9 +16,6 @@ module ActiveComponent
 
     def constantize(type)
       type = type.camelize.constantize
-      unless type.superclass == ActiveComponent::Base
-        raise TypeError, ":type must be compliant to any existing component class"
-      end
       type
     end
 
