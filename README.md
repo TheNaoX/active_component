@@ -6,7 +6,7 @@ A View-Component framework for Rails applications.
 
 ## Usage
 
-Add the gem on your gemfile
+Add the gem to your gemfile
 
 ```ruby
 gem "active-component", require: "active_component"
@@ -94,9 +94,11 @@ end
 
 ## Future short term features
 
-* Collection rendering, `collection_component(:activity_item, activities) # as array`
+* Collection rendering, `collection_component(:activity_item, activities) # as array`.
+* Support for Rails 3.
+* Usage of the gem outside of Ruby on Rails.
 * Support for more templating engines.
 
-Inspired by [Cells](https://github.com/apotonick/cells) framework done by [Apotonick](https://github.com/apotonick).
+Inspired from [Cells](https://github.com/apotonick/cells) framework done by [Apotonick](https://github.com/apotonick).
 
 This project rocks and uses [MIT-LICENSE](https://github.com/TheNaoX/active_component/blob/master/MIT-LICENSE).
