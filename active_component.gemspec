@@ -1,5 +1,4 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "rails"
 require "active_component/version"
 Gem::Specification.new do |s|
   s.name        = "active-component"
