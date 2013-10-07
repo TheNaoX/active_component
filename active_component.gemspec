@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "faker"
   s.add_development_dependency "pry"
-  s.add_development_dependency "mocha"
+  s.add_development_dependency "mocha", "~> 0.12.8"
 end
