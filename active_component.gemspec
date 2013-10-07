@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.0.0"
   s.add_dependency "mustache"
   s.add_dependency "rdoc"
-  #s.add_dependency "rake", "~> 0.8.7"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "faker"

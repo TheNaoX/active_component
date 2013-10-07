@@ -1,8 +1,8 @@
 require 'test_helper'
-require 'active_support/core_ext/numeric'
+
 class ActiveComponent::BaseTest < ActiveSupport::TestCase
 
-   def setup
+  def setup
     FooController.new.get_context
     @foo = FooComponent.new(:bar => "bar")
   end
@@ -18,7 +18,7 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
   test "a new instance of active component should raise an error if the given value is not a hash" do
     assert_raise(ArgumentError, nil) { FooComponent.new(Faker::Lorem.sentence) }
   end
-  
+
   test "assigns the values to instance variables" do
     assert_equal @foo.bar, "bar"
   end
