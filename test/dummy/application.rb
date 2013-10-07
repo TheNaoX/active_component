@@ -1,9 +1,18 @@
-require 'rubygems'
-require 'rails'
-require 'action_controller/railtie'
+require "rails"
+require "action_controller/railtie"
+require "active_component"
+ 
+class Dummy < Rails::Application
+ 
+  # Enable cache classes. Production style.
+  config.cache_classes = false
 
-class Dummy < Rails::Application  
-  config.session_store :cookie_store, :key => '_omg_session'
-  config.secret_token = '1319d8ccf1b9bfbdefcb6aa380a044ce'
-  config.encoding = "utf-8"
+  # Config eager loading
+  config.eager_load = false
+ 
+  # We need a secret token for session, cookies, etc.
+  config.secret_token = "49837489qkuweoiuoqwehisuakshdjksadhaisdy78o34y138974xyqp9rmye8yrpiokeuioqwzyoiuxftoyqiuxrhm3iou1hrzmjk"
 end
+ 
+# Initialize the app (originally in config/environment.rb)
+Dummy.initialize!
