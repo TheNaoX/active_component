@@ -21,6 +21,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency "faker"
   s.add_development_dependency "rdoc"
   s.add_development_dependency "pry"
-  s.add_development_dependency "rake", "~> 0.8.7"
+  case Rails.version
+  when "4.0.0"
+    s.add_development_dependency "rake", "~> 0.8.7"
+  else
+    s.add_development_dependency "rake"
+  end
   s.add_development_dependency "mocha", "~> 0.12.8"
 end
