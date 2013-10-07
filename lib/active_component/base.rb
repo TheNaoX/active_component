@@ -1,5 +1,4 @@
 require 'mustache'
-
 module ActiveComponent
   #
   # We inherit from mustache to have a default template engine 

@@ -1,7 +1,6 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 require "active_component/version"
-
 Gem::Specification.new do |s|
   s.name        = "active-component"
   s.version     = ActiveComponent::VERSION
