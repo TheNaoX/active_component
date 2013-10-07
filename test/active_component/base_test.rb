@@ -1,5 +1,5 @@
 require 'test_helper'
-
+require 'active_support/core_ext/numeric'
 class ActiveComponent::BaseTest < ActiveSupport::TestCase
 
    def setup
@@ -8,7 +8,7 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
   end
 
   test "has included date helper from action view" do
-    assert @foo.distance_of_time_in_words_to_now(1.day.ago)
+    assert @foo.distance_of_time_in_words_to_now(Time.now)
   end
 
   test "a new instance of active_component/base accepts only a hash of arguments" do
