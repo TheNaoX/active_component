@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'support/foo_component'
 
 class ActiveComponent::RenderableTest < ActiveSupport::TestCase
 
