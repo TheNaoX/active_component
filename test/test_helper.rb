@@ -5,7 +5,7 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
 require 'faker'
 require 'pry'
-require 'mocha/setup'
+require 'mocha' 
 
 Rails.backtrace_cleaner.remove_silencers!
 
