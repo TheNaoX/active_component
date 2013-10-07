@@ -20,7 +20,6 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
   end
   
   test "assigns the values to instance variables" do
-    binding.pry
     assert_equal @foo.bar, "bar"
   end
 
