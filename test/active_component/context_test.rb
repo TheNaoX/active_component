@@ -1,6 +1,4 @@
 require 'test_helper'
-require 'support/foo_controller'
-require 'support/foo_component'
 class ActiveComponent::ContextTest < ActiveSupport::TestCase
 
   def setup
