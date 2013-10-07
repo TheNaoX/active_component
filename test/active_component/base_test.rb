@@ -2,11 +2,10 @@ require 'test_helper'
 
 class ActiveComponent::BaseTest < ActiveSupport::TestCase
 
-  def self.prepare
+   def setup
     FooController.new.get_context
     @foo = FooComponent.new(:bar => "bar")
   end
-  prepare
 
   test "has included date helper from action view" do
     assert @foo.distance_of_time_in_words_to_now(1.day.ago)
@@ -21,6 +20,7 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
   end
   
   test "assigns the values to instance variables" do
+    binding.pry
     assert_equal @foo.bar, "bar"
   end
 
