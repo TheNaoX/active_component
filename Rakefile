@@ -21,6 +21,8 @@ end
 Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
+require 'rdoc/task'
+
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
