@@ -21,5 +21,4 @@ class ActiveComponent::ContextTest < ActiveSupport::TestCase
     controller.get_context
     assert_equal controller, ActiveComponent.controllers[Thread.current.object_id]
   end
-
 end

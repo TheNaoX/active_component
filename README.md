@@ -95,7 +95,6 @@ end
 ## Future short term features
 
 * Collection rendering, `collection_component(:activity_item, activities) # as array`.
-* Support for Rails 3.
 * Usage of the gem outside of Ruby on Rails.
 * Support for more templating engines.
 

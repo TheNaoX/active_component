@@ -1,7 +1,7 @@
 # Configure Rails Environment
-ENV["RAILS_ENV"] = "test"
+ENV["RAILS_ENV"] ||= "test"
 
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require "dummy/application.rb"
 require "rails/test_help"
 require 'faker'
 require 'pry'
