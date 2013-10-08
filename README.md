@@ -1,6 +1,7 @@
 # ActiveComponent
 [![Build Status](https://travis-ci.org/TheNaoX/active_component.png?branch=master)](https://travis-ci.org/TheNaoX/active_component)
 [![Code Climate](https://codeclimate.com/github/TheNaoX/active_component.png)](https://codeclimate.com/github/TheNaoX/active_component)
+[![Coverage Status](https://coveralls.io/repos/TheNaoX/active_component/badge.png)](https://coveralls.io/r/TheNaoX/active_component)
 
 A View-Component framework for Rails applications.
 

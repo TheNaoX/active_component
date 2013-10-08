@@ -6,6 +6,9 @@ require "rails/test_help"
 require 'faker'
 require 'pry'
 require 'mocha/setup'
+require 'coveralls'
+
+Coveralls.wear!
 
 Rails.backtrace_cleaner.remove_silencers!
 
