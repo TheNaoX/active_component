@@ -27,4 +27,10 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
     assert_kind_of FooController, @foo.controller
   end
 
+  test "has the action view helpers available" do
+    assert_nothing_raised Exception do
+      FooComponent.any_instance.stubs(:render).returns("")
+      @foo.render_component(:foo, :bar => "bar")
+    end
+  end
 end
