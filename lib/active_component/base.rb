@@ -1,4 +1,5 @@
 require 'mustache'
+
 module ActiveComponent
   #
   # We inherit from mustache to have a default template engine 
@@ -12,6 +13,7 @@ module ActiveComponent
     # the rails conventions, especially with the asset pipeline.
     #
     include ActionView::Helpers::DateHelper
+    include ActiveComponent::Renderable
     #
     # Whenever the user creates a new object from a class inherited
     # from ActiveComponent::Base it needs to define its attributes as
