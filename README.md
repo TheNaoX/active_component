@@ -9,7 +9,7 @@ A View-Component framework for Rails applications.
 Add the gem to your gemfile
 
 ```ruby
-gem "active-component", require: "active_component"
+gem "active-component", :require => "active_component"
 ```
 
 Or install it manually
@@ -66,6 +66,9 @@ In your rails view
 
 ## Features
 
+### Controller context from your component class
+
+
 You can access the controller context from where the component is instanced
 
 ```ruby
@@ -80,6 +83,8 @@ class ActivityComponent < ActiveComponent::Base
 end
 ```
 
+### Passing variables
+
 You can pass variables in the object instance
 
 ```ruby
@@ -88,13 +93,24 @@ class ActivityComponent < ActiveComponent::Base
 end
 ```
 
-``` erb
-<%= render_component(:activity, name: current_user.name) %>
+```erb
+<%= render_component(:activity, :name => current_user.name) %>
 ```
+
+### Collection Rendering
+
+You can render component collections from the view or from another component
+
+```erb
+<%= render_component(:activity, :collection => activities, :as => :activity) %>
+```
+
+Where the `:collection` is an array of elements (database records, hashes, stings, etc), and the `:as` is the name of the instance attribute defined in your component class.
+
+NOTICE In order to use the collection feature you have to define with `attr_accessor` the name of the attribute to be received by the component class.
 
 ## Future short term features
 
-* Collection rendering, `collection_component(:activity_item, activities) # as array`.
 * Test helpers, (rspec, minitest)
 * Usage of the gem outside of Ruby on Rails.
 * Support for more templating engines.
