@@ -3,7 +3,6 @@ require 'test_helper'
 class ActiveComponent::RenderableTest < ActiveSupport::TestCase
 
   setup do
-    FooComponent.any_instance.stubs(:render).returns("<div>hello!</div>")
     @view = ActionView::Base.new
   end
 
@@ -24,14 +23,25 @@ class ActiveComponent::RenderableTest < ActiveSupport::TestCase
   end
 
   test "it renders multiple components if receives a collection array" do
-    string = @view.render_component(:foo, :collection => [1,2], :as => :bar)
-    assert_equal "<div>hello!</div><div>hello!</div>", string
+    collection = ["hello!", "world!"]
+    string = @view.render_component(:foo, :collection => collection, :as => :bar)
+    assert_equal "<div>hello!</div><div>world!</div>", string
   end
 
   test "it raises an error if the given arguments didn't include the :as argument" do
     assert_raise ArgumentError do
       @view.render_component(:foo, :collection => [1,2])
     end
+  end
+
+  test "it accepts locals for a given collection" do
+    string = @view.render_component(
+      :foo,
+      :collection => [1,2],
+      :as => :bar,
+      :locals => { :baz => "baz" }
+    )
+    assert_match /baz/, string
   end
 
 end
