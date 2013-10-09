@@ -35,17 +35,20 @@ module ActiveComponent
     end
 
     def collection(type, collection, as, locals)
+
       error_string = "Attempting to render a collection without specifying the ':as' value"
       raise ArgumentError, error_string if as.nil?
 
       locals = locals || {}
 
-      collection.map do |item|
+      html_string = collection.map do |item|
         template(
           type,
           locals.merge(as => item)
         )
-      end.join('')
+      end
+
+      html_string.join('')
     end
 
     def constantize(type)
