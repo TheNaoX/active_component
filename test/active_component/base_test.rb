@@ -33,4 +33,29 @@ class ActiveComponent::BaseTest < ActiveSupport::TestCase
       @foo.render_component(:foo, :bar => "bar")
     end
   end
+
+  #
+  # Unit tests
+  # 
+
+  test "only accepts hashes" do
+    assert_raise ArgumentError do
+      @foo.assign_variables('a')
+    end
+  end
+
+  test "assigns from the given hash to the instance variables" do
+    @foo.assign_variables(:bar => "foo")
+    assert_equal @foo.bar, "foo"
+  end
+
+  test "has a controller method" do
+    FooComponent.any_instance.stubs(:controller).returns(true)
+    assert @foo.controller
+  end
+
+  test "has a render method" do
+    assert @foo.render
+  end
+
 end

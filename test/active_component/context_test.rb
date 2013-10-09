@@ -21,4 +21,14 @@ class ActiveComponent::ContextTest < ActiveSupport::TestCase
     controller.get_context
     assert_equal controller, ActiveComponent.controllers[Thread.current.object_id]
   end
+
+  test "includes the before filter into action controller" do
+    assert_equal :get_context, ActionController::Base.new._process_action_callbacks.first.filter
+  end
+
+  test "gets the context for a given contrlller" do
+    assert_nothing_raised Exception do
+      ActionController::Base.new.get_context
+    end
+  end
 end

@@ -35,17 +35,17 @@ module ActiveComponent
     # self.controller from anywhere in the inherited classes.
     #
     def initialize(args = {})
-      if args.kind_of? Hash
-        assign_variables args
-        @controller = ActiveComponent.get_controller rescue nil
-      else
-        raise ArgumentError, "Expected: Hash. Received: #{args.class.name}"
-      end
+      assign_variables args
+      @controller = ActiveComponent.get_controller
     end
 
     def assign_variables(args)
-      args.each do |key, value|
-        self.send("#{key}=", value)
+      if args.kind_of? Hash
+        args.each do |key, value|
+          self.send("#{key}=", value)
+        end
+      else
+        raise ArgumentError, "Expected: Hash. Received: #{args.class.name}"
       end
     end
 
