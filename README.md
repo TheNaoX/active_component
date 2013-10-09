@@ -107,6 +107,12 @@ You can render component collections from the view or from another component
 <%= render_component(:activity, :collection => activities, :as => :activity) %>
 ```
 
+And pass local variables
+
+```erb
+<%= render_component(:activity, :collection => activities, :as => :activity, :locals => { :foo => "foo" }) %>
+```
+
 Where the `:collection` is an array of elements (database records, hashes, stings, etc), and the `:as` is the name of the instance attribute defined in your component class.
 
 NOTICE In order to use the collection feature you have to define with `attr_accessor` the name of the attribute to be received by the component class.
