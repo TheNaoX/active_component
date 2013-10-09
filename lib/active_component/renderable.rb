@@ -23,7 +23,7 @@ module ActiveComponent
       unless args[:collection].present?
         template(type, args)
       else
-        collection(type, args[:collection], args[:as])
+        collection(type, args[:collection], args[:as], args[:locals])
       end
     end
 
@@ -34,13 +34,21 @@ module ActiveComponent
       resource.render
     end
 
-    def collection(type, collection, as)
+    def collection(type, collection, as, locals)
+
       error_string = "Attempting to render a collection without specifying the ':as' value"
       raise ArgumentError, error_string if as.nil?
 
-      collection.map do |item|
-        template(type, as => item)
-      end.join('')
+      locals = locals || {}
+
+      html_string = collection.map do |item|
+        template(
+          type,
+          locals.merge(as => item)
+        )
+      end
+
+      html_string.join('')
     end
 
     def constantize(type)
