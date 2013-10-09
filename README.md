@@ -114,7 +114,7 @@ NOTICE In order to use the collection feature you have to define with `attr_acce
 ## Future short term features
 
 * Test helpers, (rspec, minitest)
-* Usage of the gem outside of Ruby on Rails.
+* Sinatra version of this gem (active_component_core gem, and active_comoponent_sinatra)
 * Support for more templating engines.
 
 Inspired from [Cells](https://github.com/apotonick/cells) framework done by [Apotonick](https://github.com/apotonick).
