@@ -1,4 +1,4 @@
-require 'active_support/concern'
+require 'active_support/concern' if defined?(Rails)
 
 # 
 # This provides a clean implementation for rendering your template
@@ -64,4 +64,4 @@ module ActiveComponent
   end
 end
 
-ActionView::Base.send(:include, ActiveComponent::Renderable)
+ActionView::Base.send(:include, ActiveComponent::Renderable) if defined?(Rails)

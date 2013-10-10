@@ -12,7 +12,7 @@ module ActiveComponent
     # the application in order to allow this class to interact with
     # the rails conventions, especially with the asset pipeline.
     #
-    include ActionView::Helpers::DateHelper
+    include ActionView::Helpers::DateHelper if defined?(ActionView)
     include ActiveComponent::Renderable
     #
     # Whenever the user creates a new object from a class inherited
@@ -36,7 +36,7 @@ module ActiveComponent
     #
     def initialize(args = {})
       assign_variables args
-      @controller = ActiveComponent.get_controller
+      @controller = ActiveComponent.get_controller if defined?(Rails)
     end
 
     def assign_variables(args)
