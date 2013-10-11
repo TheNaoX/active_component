@@ -1,5 +1,3 @@
-require 'active_support/concern'
-
 # 
 # This provides a clean implementation for rendering your template
 # inside your view.
@@ -64,4 +62,4 @@ module ActiveComponent
   end
 end
 
-ActionView::Base.send(:include, ActiveComponent::Renderable)
+ActionView::Base.send(:include, ActiveComponent::Renderable) if defined?(ActionView)

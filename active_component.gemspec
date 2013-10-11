@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", ">= 3.0.0"
   s.add_dependency "mustache"
 
   s.add_development_dependency "sqlite3"
@@ -21,4 +20,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pry"
   s.add_development_dependency "mocha"
   s.add_development_dependency "coveralls"
+  s.add_development_dependency "sinatra"
+  s.add_development_dependency "rails"
 end

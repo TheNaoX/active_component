@@ -5,6 +5,7 @@ require "dummy/application.rb"
 require "rails/test_help"
 require 'faker'
 require 'pry'
+require 'sinatra'
 require 'mocha/setup'
 require 'coveralls'
 
