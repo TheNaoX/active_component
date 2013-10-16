@@ -54,7 +54,7 @@ class ActiveComponent::RenderableTest < ActiveSupport::TestCase
   end
 
   test "it returns a string from the template" do
-    string = @view.send(:template, :foo, :bar => "Hello world!")
+    string = @view.send(:element, :foo, :bar => "Hello world!")
     assert_equal "<div>Hello world!</div>", string
   end
 
