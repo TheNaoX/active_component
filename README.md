@@ -1,5 +1,6 @@
 # ActiveComponent
 [![Gem Version](https://badge.fury.io/rb/active-component.png)](http://badge.fury.io/rb/active-component)
+[![Dependency Status](https://gemnasium.com/TheNaoX/active_component.png)](https://gemnasium.com/TheNaoX/active_component)
 [![Build Status](https://travis-ci.org/TheNaoX/active_component.png?branch=master)](https://travis-ci.org/TheNaoX/active_component)
 [![Code Climate](https://codeclimate.com/github/TheNaoX/active_component.png)](https://codeclimate.com/github/TheNaoX/active_component)
 [![Coverage Status](https://coveralls.io/repos/TheNaoX/active_component/badge.png)](https://coveralls.io/r/TheNaoX/active_component)
