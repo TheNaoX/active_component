@@ -138,7 +138,7 @@ end
 
 ## Future short term features
 
-* Test helpers, (rspec, minitest)
+* Dynamic attributes (get rid of attr accessible)
 * Support for more templating engines.
 
 Inspired from [Cells](https://github.com/apotonick/cells) framework done by [Apotonick](https://github.com/apotonick).
