@@ -15,10 +15,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "mustache"
 
+  # Development dependencies
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "faker"
-  s.add_development_dependency "pry"
-  s.add_development_dependency "mocha"
   s.add_development_dependency "coveralls"
   s.add_development_dependency "sinatra"
   s.add_development_dependency "rails"
@@ -29,4 +27,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec-expectations"
   s.add_development_dependency "rspec-mocks"
   s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "faker"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "guard"
+  s.add_development_dependency "guard-rspec"
 end
