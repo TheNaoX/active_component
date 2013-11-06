@@ -1,17 +1,17 @@
-require 'test/unit'
+require 'spec_helper'
 require 'rack/test'
 
-class SinatraTest < Test::Unit::TestCase
+describe "Sinatra test" do
   include Rack::Test::Methods
 
   def app
     FooSinatra
   end
 
-  def test_includes_render_component
+  it "includes render component" do
     get '/'
-    assert last_response.ok?
-    assert_equal '<div>Hello</div>world!', last_response.body
+    expect(last_response.ok?).to be_true
+    expect(last_response.body).to eq('<div>Hello</div>world!')
   end
 
 end

@@ -1,9 +1,11 @@
-require 'test_helper'
+require 'spec_helper'
 
-class ActiveComponentTest < ActiveSupport::TestCase
+describe ActiveComponent do
 
-  test "has a get controller method" do
-    assert ActiveComponent.get_controller
+  it "has a get controller method" do
+    expect {
+      ActiveComponent.get_controller
+    }.to_not raise_error
   end
 
 end

@@ -1,71 +1,67 @@
-require 'test_helper'
+require 'spec_helper'
 
-class ActiveComponent::RenderableTest < ActiveSupport::TestCase
+describe ActiveComponent::Renderable do
 
-  setup do
+  before do
     @view = ActionView::Base.new
     @collection = ["hello!", "world!"]
   end
 
-  test "renders a component" do
-    assert_nothing_raised Exception do
+  it "renders a component" do
+    expect{
       @view.render_component(:foo)
-    end
+    }.to_not raise_error
   end
 
-  test "gets a component instance from symbol" do
-    assert_kind_of String, @view.render_component(:foo)
+  it "gets a component instance from symbol" do
+    expect(@view.render_component(:foo)).to be_kind_of(String)
   end
 
-  test "accepts only a symbol and a hash" do
-    assert_raise ArgumentError do
+  it "accepts only a symbol and a hash" do
+    expect{
       @view.render_component(nil, nil)
-    end
+    }.to raise_error(ArgumentError)
   end
 
-  test "it renders multiple components if receives a collection array" do
+  it "it renders multiple components if receives a collection array" do
     string = @view.render_component(:foo, :collection => @collection, :as => :bar)
-    assert_equal "<div>hello!</div><div>world!</div>", string
+    expect(string).to eq("<div>hello!</div><div>world!</div>")
   end
 
-  test "it raises an error if the given arguments didn't include the :as argument" do
-    assert_raise ArgumentError do
+  it "it raises an error if the given arguments didn't include the :as argument" do
+    expect {
       @view.render_component(:foo, :collection => [1,2])
-    end
+    }.to raise_error(ArgumentError)
   end
 
-  test "it accepts locals for a given collection" do
+  it "it accepts locals for a given collection" do
     string = @view.render_component(
       :foo,
       :collection => @collection,
       :as => :bar,
       :locals => { :baz => "baz" }
     )
-    assert_match /baz/, string
+    expect(string).to match(/baz/)
   end
 
-  # 
-  # Private methods
-  #
-
-  test "it returns a string of multiple elements" do
+  it "it returns a string of multiple elements" do
     string = @view.send(:collection, :foo, @collection, :bar, nil)
-    assert_equal "<div>hello!</div><div>world!</div>", string
+    expect(string).to eq("<div>hello!</div><div>world!</div>")
   end
 
-  test "it returns a string from the template" do
+  it "it returns a string from the template" do
     string = @view.send(:element, :foo, :bar => "Hello world!")
-    assert_equal "<div>Hello world!</div>", string
+    expect(string).to eq("<div>Hello world!</div>")
   end
 
-  test "it turns a string into a constant" do
-    assert_equal FooComponent, @view.send(:constantize, "foo_component")
+  it "it turns a string into a constant" do
+    expect(@view.send(:constantize, "foo_component")).to eq(FooComponent)
   end
 
-  test "it raises an error" do
-    assert_raise ArgumentError do
+  it "it raises an error" do
+    expect{
       @view.send(:raise_errors, :foo, {})
-    end
+    }.to raise_error(ArgumentError)
   end
 
 end

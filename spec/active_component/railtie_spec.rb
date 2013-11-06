@@ -1,4 +1,5 @@
-require 'test_helper'
+require 'spec_helper'
 
-class ActiveComponent::RailtieTest < ActiveSupport::TestCase
+describe ActiveComponent::Railtie do
+
 end

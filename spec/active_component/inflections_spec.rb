@@ -1,21 +1,18 @@
-require 'test/unit'
-require 'rack/test'
+require 'spec_helper'
 
-class ActiveComponent::InflectionsTest < Test::Unit::TestCase
-  include Rack::Test::Methods
-
-  def test_active_component_constantize
+describe ActiveComponent::Inflections do
+  it 'creates a constant out of a string' do
     text = "FooComponent"
-    assert_equal FooComponent, text.constantize
+    expect(text.constantize).to eq(FooComponent)
   end
 
-  def test_active_component_camelize
+  it 'creates a camelized string out of an underscore string' do
     text = 'foo_component'
-    assert_equal 'FooComponent', text.camelize
+    expect(text.camelize).to eq('FooComponent')
   end
 
-  def test_active_component_camelize_constantize
+  it 'creates a constant out of an underscore string' do
     text = 'foo_component'
-    assert_equal FooComponent, text.camelize.constantize
+    expect(text.camelize.constantize).to eq(FooComponent)
   end
 end
