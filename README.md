@@ -138,8 +138,9 @@ end
 
 ## Future short term features
 
-* Dynamic attributes (get rid of attr accessible)
+* Dynamic instance variables, get rid of `attr_accessor :foo`
 * Support for more templating engines.
+* Dynamic attributes (get rid of attr accessible)
 
 Inspired from [Cells](https://github.com/apotonick/cells) framework done by [Apotonick](https://github.com/apotonick).
 
