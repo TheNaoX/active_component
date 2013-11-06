@@ -1,34 +1,40 @@
-require 'test_helper'
+require 'spec_helper'
 
-class ActiveComponent::ContextTest < ActiveSupport::TestCase
+describe ActiveComponent::Context do
 
-  def setup
+  before do
     FooController.new.get_context
   end
 
-  test "returns a cotroller instance" do
-    assert_kind_of FooController, ActiveComponent.get_controller
+  it "returns a cotroller instance" do
+    expect(
+      ActiveComponent.get_controller
+    ).to be_kind_of(FooController)
   end
 
-  test "saves the controller in a @@controllers hash" do
-    assert_nothing_raised Exception do
+  it "saves the controller in a @@controllers hash" do
+    expect {
       ActiveComponent.set_controller(FooController.new)
-    end
+    }.to_not raise_error
   end
 
-  test "it returns exactly the same controller sent" do
+  it "it returns exactly the same controller sent" do
     controller = FooController.new
     controller.get_context
-    assert_equal controller, ActiveComponent.controllers[Thread.current.object_id]
+    expect(
+      ActiveComponent.controllers[Thread.current.object_id]
+    ).to eq(controller)
   end
 
-  test "includes the before filter into action controller" do
-    assert_equal :get_context, ActionController::Base.new._process_action_callbacks.first.filter
+  it "includes the before filter into action controller" do
+    expect(
+      ActionController::Base.new._process_action_callbacks.first.filter
+    ).to eq(:get_context)
   end
 
-  test "gets the context for a given contrlller" do
-    assert_nothing_raised Exception do
+  it "gets the context for a given contrlller" do
+    expect {
       ActionController::Base.new.get_context
-    end
+    }.to_not raise_error
   end
 end
