@@ -2,8 +2,8 @@ require 'mustache'
 
 module ActiveComponent
   #
-  # We inherit from mustache to have a default template engine 
-  # for the application, we might add more templating options in the 
+  # We inherit from mustache to have a default template engine
+  # for the application, we might add more templating options in the
   # future.
   #
   class Base < Mustache
@@ -31,7 +31,7 @@ module ActiveComponent
     #
     # In addition to this we provide the controller context from where the
     # view component is called.
-    # 
+    #
     # self.controller from anywhere in the inherited classes.
     #
     def initialize(args = {})

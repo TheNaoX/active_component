@@ -12,7 +12,7 @@ A View-Component framework for Rails applications.
 Add the gem to your gemfile
 
 ```ruby
-gem "active-component", :require => "active_component"
+gem "active-component"
 ```
 
 Or install it manually
