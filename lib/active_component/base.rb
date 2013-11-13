@@ -1,4 +1,5 @@
 require 'mustache'
+require 'ostruct'
 
 module ActiveComponent
   #
@@ -6,7 +7,7 @@ module ActiveComponent
   # for the application, we might add more templating options in the
   # future.
   #
-  class Base < Mustache
+  class Base < OpenStruct
     #
     # We're going to eventually add the view helpers to this side of
     # the application in order to allow this class to interact with
@@ -34,19 +35,10 @@ module ActiveComponent
     #
     # self.controller from anywhere in the inherited classes.
     #
-    def initialize(args = {})
-      assign_variables args
+    def initialize(hash=nil)
+      raise ArgumentError, "Expected: Hash. Received: #{hash.class.name}" unless hash.kind_of? Hash
+      super
       @controller = ActiveComponent.get_controller if defined?(Rails)
-    end
-
-    def assign_variables(args)
-      if args.kind_of? Hash
-        args.each do |key, value|
-          self.send("#{key}=", value)
-        end
-      else
-        raise ArgumentError, "Expected: Hash. Received: #{args.class.name}"
-      end
     end
 
     def controller

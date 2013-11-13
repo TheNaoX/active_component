@@ -8,19 +8,19 @@ describe ActiveComponent::Base do
   end
 
   it "has included date helper from action view" do
-    expect{
+    expect {
       @foo.distance_of_time_in_words_to_now(Time.now)
     }.to_not raise_error
   end
 
   it "a new instance of active_component/base accepts only a hash of arguments" do
-    expect{
+    expect {
       FooComponent.new(:bar => Faker::Name.name)
     }.to_not raise_error
   end
 
   it "a new instance of active component should raise an error if the given value is not a hash" do
-    expect{
+    expect {
       FooComponent.new(Faker::Lorem.sentence)
     }.to raise_error(ArgumentError)
   end
@@ -35,20 +35,9 @@ describe ActiveComponent::Base do
 
   it "has the action view helpers available" do
     FooComponent.stub(:render).and_return("")
-    expect{
+    expect {
       @foo.render_component(:foo, :bar => "bar")
     }.to_not raise_error
-  end
-
-  it "only accepts hashes" do
-    expect {
-      @foo.assign_variables('a')
-    }.to raise_error(ArgumentError)
-  end
-
-  it "assigns from the given hash to the instance variables" do
-    @foo.assign_variables(:bar => "foo")
-    expect(@foo.bar).to eq("foo")
   end
 
   it "has a controller method" do
